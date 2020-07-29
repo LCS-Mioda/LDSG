@@ -12,24 +12,64 @@
 
     <style>
         .fonte{
-            font-size:xx-large;
+            font-size:40px;
             font-family: 'Times New Roman', Times, serif;
             }
+
         .fonte2{
             font-size:medium;
             font-family: 'Times New Roman', Times, serif;
             }
-        .a1{
-            display: table;
+
+        .load{
+        position:absolute;
+        top:32%;
         }
-        .a2{
-            vertical-align: middle;
-            display:table-cell;
+
+        .loader {
+            position: fixed;
+            z-index: 99;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90%;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            size: initial;
         }
+
+        .loader > img {
+            width: 100px;
+        }
+
+        .loader.hidden {
+            animation: fadeOut 3s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeOut {
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
     </style>
-  </head>
-  <body style="background-color: black;">
-    <div class="container-fluid">
+    </head>
+<body style="background-color: black;">
+
+    <div class="loader">
+       <img src="flame.gif"></img> 
+    </div>
+    <script>
+        window.addEventListener("load", function () {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden"; // class "loader hidden"
+    });
+    </script>
+    <div class="container-fluid load">  
         <div>
                 <p style="color: white;" class="d-flex justify-content-center fonte">Linha Direta São gonçalo</p>
                 <p style="color: white;" class="d-flex justify-content-center fonte2">Vamos aliviar a sua dor</p>
